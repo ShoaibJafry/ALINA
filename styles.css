@@ -1,0 +1,185 @@
+@font-face {
+    font-family: 'fuuny';
+    src: url('./MilkywayDEMO.ttf') format('truetype');
+}
+
+body {
+    background: linear-gradient( #FFAFCC, black);
+    margin: 0;
+}
+.hero {
+    text-align: center;
+    height: 450px;
+    border-radius: 10px 10px 0 0;
+    background-image: url("./images/cover.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    margin: 5px 5px 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Wrapper — holds the firework layers */
+.name-wrap {
+    position: relative;
+    display: inline-block;
+    padding: 40px 60px;
+}
+
+.name {
+    position: relative;
+    z-index: 1;
+    font-family: 'fuuny', sans-serif;
+    font-weight: 300;             /* "light" is invalid */
+    letter-spacing: 5px;
+    font-size: 2.5em;
+    color: #fdf0d5;
+    text-shadow: 0 0 4px black;
+    margin: 0;
+    transform: translateY(40px);
+}
+
+/* ─── DOODLE: left swirl ─────────────────────────── */
+.name::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    width: 20px;
+    height: 40px;
+    border-left: 3px solid #fff;
+    border-radius: 50%;
+    transform: translateY(-50%) rotate(-15deg);
+    filter: drop-shadow(0 0 3px #fff);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ─── DOODLE: right swirl ────────────────────────── */
+.name::after {
+    content: '';
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    width: 20px;
+    height: 40px;
+    border-right: 3px solid #fff;
+    border-radius: 50%;
+    transform: translateY(-50%) rotate(15deg);
+    filter: drop-shadow(0 0 3px #fff);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ─── FIREWORK: soft glow behind everything ──────── */
+.name-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -40px -60px;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(255, 200, 80, 0.55), transparent 40%),
+        radial-gradient(circle at 80% 50%, rgba(255, 100, 180, 0.55), transparent 40%),
+        radial-gradient(circle at 50% 20%, rgba(120, 200, 255, 0.45), transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(255, 120, 80, 0.45), transparent 45%);
+    filter: blur(18px);
+    z-index: 0;
+    animation: fireworkPulse 2.5s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+/* ─── FIREWORK: sparkles ─────────────────────────── */
+.name-wrap::after {
+    content: '';
+    position: absolute;
+    inset: -20px -30px;
+    background-image:
+        radial-gradient(2px 2px at 10% 20%, #fff, transparent),
+        radial-gradient(2px 2px at 90% 30%, #ffe066, transparent),
+        radial-gradient(2px 2px at 30% 80%, #ff99cc, transparent),
+        radial-gradient(2px 2px at 70% 70%, #99ddff, transparent),
+        radial-gradient(2px 2px at 50% 10%, #fff, transparent);
+    opacity: 0.8;
+    z-index: 0;
+    animation: sparkle 1.8s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes fireworkPulse {
+    0%   { transform: scale(0.95); opacity: 0.7; }
+    100% { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50%      { opacity: 1;   transform: scale(1.15); }
+}
+
+.banner {
+    text-align: center;
+    margin: 0 5px;
+    padding: 1px 0 20px;
+    background-color: #e8e8e4;
+    border-radius: 0 0 10px 10px;
+}
+
+
+.heading {
+    text-align: center;
+    color: #22333b;
+    padding-top: 20px;
+    margin-top: 0;
+}
+
+.reason-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 20px;
+    gap: 20px;
+}
+
+.reason {
+    flex: 1;
+    text-align: center;      /* keep image + text centered within its column */
+    margin: 20px 0;
+}
+
+
+.imgage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 10%;
+}
+
+.developer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #e8e8e4;
+    width:400px;
+}
+
+.developer-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.me {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: center 10%;
+}
+
+.developer-wrap{
+    text-align: center;
+}
